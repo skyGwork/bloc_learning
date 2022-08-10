@@ -52,11 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
+
             BlocBuilder<CounterCubit, CounterState>(
               builder: (context, state) {
+                
                 return Text(
                   // state.counterValue.toString(),
-                  //! we need String here 
+                  //! we need String here
                   '${state.counterValue}',
                   style: const TextStyle(
                     color: Colors.grey,
@@ -66,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+
             // BlocConsumer<CounterCubit, CounterState>(
             //   listener: (context, state) {
             //     if (state.wasIncremented == true) {
