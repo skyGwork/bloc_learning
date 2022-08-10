@@ -1,4 +1,5 @@
 import 'package:bloc_learning/cubit/counter_state.dart';
+import 'package:bloc_learning/widgets/counter_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -55,17 +56,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
             BlocBuilder<CounterCubit, CounterState>(
               builder: (context, state) {
-                
-                return Text(
-                  // state.counterValue.toString(),
-                  //! we need String here
-                  '${state.counterValue}',
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                );
+                if (state.counterValue < 0) {
+                  return CounterText(
+                    counterText: 'BRR, NEGATIVE ${state.counterValue}',
+                  );
+                } else if (state.counterValue % 2 == 0) {
+                  return CounterText(
+                    counterText: 'YAAAY ${state.counterValue}',
+                  );
+                } else if (state.counterValue == 5) {
+                  return const CounterText(
+                    counterText: 'HMM, NUMBER 5',
+                  );
+                } else {
+                  return CounterText(
+                    counterText: state.counterValue.toString(),
+                  );
+                }
               },
             ),
 
