@@ -2,7 +2,7 @@
 
 class CounterState {
   final int counterValue;
- final bool wasIncremented;
+  final bool wasIncremented;
 
   CounterState({
     required this.counterValue,

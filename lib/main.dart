@@ -46,10 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-
       body: BlocListener<CounterCubit, CounterState>(
         listener: (context, state) {
-
           if (state.wasIncremented == true) {
             // ignore: deprecated_member_use
             Scaffold.of(context).showSnackBar(const SnackBar(
@@ -59,12 +57,11 @@ class _MyHomePageState extends State<MyHomePage> {
           } else if (state.wasIncremented == false) {
             // ignore: deprecated_member_use
             Scaffold.of(context).showSnackBar(const SnackBar(
-              content: Text('Incremented!'),
+              content: Text('Decremented!'),
               duration: Duration(milliseconds: 300),
             ));
           }
         },
-        
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
