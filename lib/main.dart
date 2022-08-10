@@ -1,15 +1,31 @@
-Stream<int> boatStream() async* {
-  for (int i = 1; i <= 10; i++) {
-    print("SENT boat no. " + i.toString());
-    await Future.delayed(Duration(seconds: 2));
-    yield i;
-  }
+import 'package:bloc_learning/cubit/counter_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+void main(List<String> args) {
+  runApp(const MyApp());
 }
 
-void main(List<String> args) async {
-  Stream<int> stream = boatStream();
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  stream.listen((receivedData) {
-    print("RECEIVED boat no. " + receivedData.toString());
-  });
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => CounterCubit(),
+      child: MaterialApp(
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: Scaffold(
+            body: Center(
+              child: Text(
+                'bloc learning'.toUpperCase(),
+              ),
+            ),
+          )),
+    );
+  }
 }
