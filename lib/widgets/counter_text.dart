@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CounterText extends StatelessWidget {
   final String counterText;
+  
   const CounterText({
     Key? key,
     required this.counterText,
