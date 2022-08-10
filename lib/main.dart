@@ -1,3 +1,4 @@
+import 'package:bloc_learning/cubit/counter_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +15,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => CounterCubit(),
-
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'blocSM-learning',
@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
         ),
         home: const MyHomePage(title: 'BlocSM'),
       ),
-      
     );
   }
 }
@@ -53,13 +52,19 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            const Text(
-              'COUNTER VALUE',
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
+            BlocBuilder<CounterCubit, CounterState>(
+              builder: (context, state) {
+                return Text(
+                  // state.counterValue.toString(),
+                  //! we need String here 
+                  '${state.counterValue}',
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
+                );
+              },
             ),
             // BlocConsumer<CounterCubit, CounterState>(
             //   listener: (context, state) {
