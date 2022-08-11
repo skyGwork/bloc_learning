@@ -22,11 +22,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // GlobalKey<ScaffoldState> homeScreenKey = GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> homeScreenKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // key: homeScreenKey,
+      key: homeScreenKey,
       appBar: AppBar(
         backgroundColor: widget.color,
         title: Text(widget.title),
