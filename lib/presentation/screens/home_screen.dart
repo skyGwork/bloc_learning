@@ -2,6 +2,8 @@
 
 import 'package:bloc_learning/bloc/cubit/counter_cubit.dart';
 import 'package:bloc_learning/bloc/cubit/counter_state.dart';
+import 'package:bloc_learning/presentation/screens/second_screen.dart';
+import 'package:bloc_learning/presentation/screens/third_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -114,28 +116,45 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed(
-                  '/second',
-                  arguments: homeScreenKey,
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider.value(
+                      // value: CounterCubit(),
+                      value: BlocProvider.of<CounterCubit>(context),
+                      child: const SecondScreen(
+                        title: 'Second Screen',
+                        color: Colors.redAccent,
+                      ),
+                    ),
+                  ),
                 );
               },
             ),
             const SizedBox(height: 24),
             MaterialButton(
-              color: Colors.greenAccent,
+              color: Colors.purple,
               child: const Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   'Explore 3rd Screen ',
                   style: TextStyle(
-                    color: Color.fromRGBO(234, 22, 46, 1),
+                    color: Colors.white,
                     fontSize: 20,
                   ),
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed(
-                  '/third',
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider.value(
+                      // value: CounterCubit(),
+                      value: BlocProvider.of<CounterCubit>(context),
+                      child: const ThirdScreen(
+                        title: 'Third Screen',
+                        color: Colors.purple,
+                      ),
+                    ),
+                  ),
                 );
               },
             ),

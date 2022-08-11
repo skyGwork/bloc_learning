@@ -2,6 +2,8 @@
 
 import 'package:bloc_learning/bloc/cubit/counter_cubit.dart';
 import 'package:bloc_learning/bloc/cubit/counter_state.dart';
+import 'package:bloc_learning/presentation/screens/home_screen.dart';
+import 'package:bloc_learning/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -84,7 +86,6 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   backgroundColor: widget.color,
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).decrement();
-                    // context.bloc<CounterCubit>().decrement();
                   },
                   tooltip: 'Decrement',
                   child: const Icon(Icons.remove),
@@ -94,7 +95,6 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   heroTag: Text('${widget.title} 2nd'),
                   onPressed: () {
                     BlocProvider.of<CounterCubit>(context).increment();
-                    // context.bloc<CounterCubit>().increment();
                   },
                   tooltip: 'Increment',
                   child: const Icon(Icons.add),
@@ -102,25 +102,33 @@ class _ThirdScreenState extends State<ThirdScreen> {
               ],
             ),
             const SizedBox(height: 24),
-            // MaterialButton(
-            //   color: widget.color,
-            //   child: Text(
-            //     'Go to Second Screen',
-            //     style: TextStyle(color: Colors.white),
-            //   ),
-            //   onPressed: () {
-            //     Navigator.of(context).push(
-            //       MaterialPageRoute<HomeScreen>(
-            //         builder: (context) {
-            //           return HomeScreen(
-            //             color: Colors.redAccent,
-            //             title: 'Second Screen',
-            //           );
-            //         },
-            //       ),
-            //     );
-            //   },
-            // ),
+            MaterialButton(
+              color: Colors.green,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Home Screen',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                  ),
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => BlocProvider.value(
+                      // value: CounterCubit(),
+                      value: BlocProvider.of<CounterCubit>(context),
+                      child: const HomeScreen(
+                        title: 'Home Screen',
+                        color: Colors.green,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
