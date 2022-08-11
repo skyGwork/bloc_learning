@@ -22,11 +22,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  GlobalKey<ScaffoldState> homeScreenKey = GlobalKey<ScaffoldState>();
+  // GlobalKey<ScaffoldState> homeScreenKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: homeScreenKey,
+      // key: homeScreenKey,
       appBar: AppBar(
         backgroundColor: widget.color,
         title: Text(widget.title),
@@ -104,20 +104,19 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 24),
             MaterialButton(
-              color: Colors.redAccent,
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'Explore 2nd Screen',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+                color: Colors.redAccent,
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Explore 2nd Screen',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => BlocProvider.value(
                       // value: CounterCubit(),
                       value: BlocProvider.of<CounterCubit>(context),
@@ -126,26 +125,23 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.redAccent,
                       ),
                     ),
-                  ),
-                );
-              },
-            ),
+                  ));
+                }),
             const SizedBox(height: 24),
             MaterialButton(
-              color: Colors.purple,
-              child: const Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'Explore 3rd Screen ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+                color: Colors.purple,
+                child: const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Explore 3rd Screen ',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
-              ),
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
                     builder: (_) => BlocProvider.value(
                       // value: CounterCubit(),
                       value: BlocProvider.of<CounterCubit>(context),
@@ -154,10 +150,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.purple,
                       ),
                     ),
-                  ),
-                );
-              },
-            ),
+                  ));
+                }),
           ],
         ),
       ),

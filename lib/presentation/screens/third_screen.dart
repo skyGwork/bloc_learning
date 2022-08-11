@@ -3,7 +3,6 @@
 import 'package:bloc_learning/bloc/cubit/counter_cubit.dart';
 import 'package:bloc_learning/bloc/cubit/counter_state.dart';
 import 'package:bloc_learning/presentation/screens/home_screen.dart';
-import 'package:bloc_learning/presentation/screens/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
