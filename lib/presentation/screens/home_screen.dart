@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).pushNamed('/second');
+                Navigator.of(context).pushNamed('/second/one');
               },
             ),
             const SizedBox(height: 24),
