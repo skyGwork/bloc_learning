@@ -114,18 +114,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                 ),
               ),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      // value: CounterCubit(),
-                      value: BlocProvider.of<CounterCubit>(context),
-                      child: const HomeScreen(
-                        title: 'Home Screen',
-                        color: Colors.green,
-                      ),
-                    ),
-                  ),
-                );
+                Navigator.of(context).pushNamed('/');
               },
             ),
           ],

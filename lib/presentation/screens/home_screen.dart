@@ -104,54 +104,38 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 24),
             MaterialButton(
-                color: Colors.redAccent,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'Explore 2nd Screen',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+              color: Colors.redAccent,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Explore 2nd Screen',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
                   ),
                 ),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      // value: CounterCubit(),
-                      value: BlocProvider.of<CounterCubit>(context),
-                      child: const SecondScreen(
-                        title: 'Second Screen',
-                        color: Colors.redAccent,
-                      ),
-                    ),
-                  ));
-                }),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/second');
+              },
+            ),
             const SizedBox(height: 24),
             MaterialButton(
-                color: Colors.purple,
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'Explore 3rd Screen ',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                    ),
+              color: Colors.purple,
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  'Explore 3rd Screen ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
                   ),
                 ),
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (_) => BlocProvider.value(
-                      // value: CounterCubit(),
-                      value: BlocProvider.of<CounterCubit>(context),
-                      child: const ThirdScreen(
-                        title: 'Third Screen',
-                        color: Colors.purple,
-                      ),
-                    ),
-                  ));
-                }),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/third');
+              },
+            ),
           ],
         ),
       ),
